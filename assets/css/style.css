@@ -1,29 +1,27 @@
-:root{
-
+body{
+   margin: 0;
+   display: block;
 }
 
 header{
-    background-color: gray;
+    
 }
 
 #title{
    text-align: center;
 }
 
-header nav{
+.header nav{
     font-size: 20px;
     text-align: end;
 }
 
-header ul li {
+.header button {
     display: inline-block;
-    margin: 20px;
-}
-
-header a{
-    text-decoration: none;
-    font-size: 20px;
-    line-height: 50px;
+    margin: 10px;
+    border-radius: 30px;
+    background-color: rgb(14, 158, 158);
+    padding: 10px;
 }
 
 .footer{
@@ -31,7 +29,6 @@ header a{
 	bottom: 0;
     text-align: center;
     width: 100%;
-    background-color: gray;
 }
 
 .questions{
@@ -53,4 +50,4 @@ header a{
 
 #button{
     align-items: center;
-}
+} 

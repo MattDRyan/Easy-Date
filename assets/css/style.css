@@ -9,3 +9,6 @@ body{
 footer{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.hide{
+    display: none;
+}

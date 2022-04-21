@@ -194,7 +194,16 @@ function submitResults() {
       }
     }
   }
-  var moodIndex = finalResult.indexOf(Math.max(...finalResult));
+  var maxValue = Math.max(...finalResult);
+  var indexes = []
+  finalResult.forEach((value,index) => {
+    
+      if (value === maxValue) {
+          indexes.push(index)
+      }
+  })
+
+  var moodIndex = indexes[Math.floor(Math.random() * indexes.length)]
   var mood;
   var cuisineSelection =
     cuisine[moodIndex][Math.floor(Math.random() * cuisine[moodIndex].length)];
@@ -211,7 +220,6 @@ function submitResults() {
     mood = "loveIn";
   }
 
-  console.log(finalResult)
   console.log(mood);
   console.log(cuisineSelection);
 }

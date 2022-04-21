@@ -45,9 +45,17 @@ const results = {
     }
 }
 
+const cuisine = {
+    0: ['indian'],
+    1: ['parmi','comfort food'],
+    2: ['thai restaurant','vietnamese restaurant'],
+    3: ['pizza', 'fast food'],
+    4: ['italian', 'french']
+}
+
 var finalResult = [...Array(5)]
 
-var selected = [results.horoscope.virgo,results.mood[7], results.pet.dog, results.season.summer]
+var selected = [results.horoscope.virgo,results.mood[2], results.pet.dog, results.season.winter]
 
 for(const element of selected) {
     for(let i = 0; i < finalResult.length; i++){
@@ -61,6 +69,8 @@ for(const element of selected) {
 
 var moodIndex = finalResult.indexOf(Math.max(...finalResult))
 var mood
+var cuisineSelection = cuisine[moodIndex][Math.floor(Math.random()*cuisine[moodIndex].length)]
+
 if(moodIndex === 0){
     mood = 'imAmped'
 }else if(moodIndex === 1){
@@ -73,8 +83,8 @@ if(moodIndex === 0){
     mood = 'loveIn'
 }
 
-console.log(finalResult)
 console.log(mood)
+console.log(cuisineSelection)
 
 fetch(url,{
     origin: true

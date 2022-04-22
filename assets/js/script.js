@@ -1,5 +1,6 @@
 const heading = document.querySelector("#heading");
 const contentContainer = document.querySelector("#content-container");
+const historyContainer = document.querySelector("#history-container");
 
 const url =
   "https://bootcamp-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry%2Cphotos%2Cplace_id&input=indian&inputtype=textquery&key=AIzaSyA4jqADXbsqKUUjnvdb8BjUpHLTv_pLezI";
@@ -91,7 +92,7 @@ const results = {
 };
 
 const cuisine = {
-  0: ["indian"],
+  0: ["indian restaurant", "spicy food"],
   1: ["parmi", "comfort food"],
   2: ["thai restaurant", "vietnamese restaurant"],
   3: ["pizza", "fast food"],
@@ -114,6 +115,20 @@ function init() {
   heading.innerHTML = "Can't find a date idea? Easy Date can help";
   contentContainer.innerHTML =
     '<button id="start-btn" class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black text-3xl my-3">Let\'s Go</button>';
+
+  setHistory();
+}
+
+function setHistory() {
+  var history = JSON.parse(localStorage.getItem('recommendations'))
+  console.log(history);
+  if(history !== null){
+    historyContainer.classList.remove('hide')
+    historyContainer.data.hide = "false"
+  }else{
+    historyContainer.classList.add('hide')
+    historyContainer.data.hide = "true"
+  }
 }
 
 function startQuiz() {
@@ -220,8 +235,8 @@ function submitResults() {
     mood = "loveIn";
   }
 
-  console.log(mood);
-  console.log(cuisineSelection);
+  window.location.replace('http://127.0.0.1:5500/Homework/Project-01/Project-1/results.html?mood='+ mood+'&cuisine='+cuisineSelection)
+
 }
 
 contentContainer.addEventListener("click", function (e) {

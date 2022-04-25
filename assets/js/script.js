@@ -3,8 +3,9 @@ const contentContainer = document.querySelector("#content-container");
 const historyContainer = document.querySelector("#history-container");
 
 const url =
-  "https://bootcamp-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry%2Cphotos%2Cplace_id&input=indian&inputtype=textquery&key=AIzaSyA4jqADXbsqKUUjnvdb8BjUpHLTv_pLezI";
+  "https://bootcamp-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry%2Cphotos%2Cplace_id&input=indian&inputtype=textquery&key=AIzaSyCjPVVPCQ5cp2r6U1goFUDzjPTl2dKYUUg";
 
+  const url2 = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry%2Cphotos%2Cplace_id&input=indian&inputtype=textquery&key=AIzaSyCjPVVPCQ5cp2r6U1goFUDzjPTl2dKYUUg'
 const questions = [
   "How about we start with your horoscope?",
   "How awesome are you feeling?",
@@ -103,13 +104,13 @@ var finalResult = [...Array(5)];
 
 var selected = [];
 
-// fetch(url,{
-//     origin: true
-// }).then((response) => {
-//     return response.json();
-// }).then(data => {
-//     console.log(data);
-// })
+fetch(url2,{
+    origin: true
+}).then((response) => {
+    return response.json();
+}).then(data => {
+    console.log(data);
+})
 
 function init() {
   heading.innerHTML = "Can't find a date idea? Easy Date can help";

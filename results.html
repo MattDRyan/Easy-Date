@@ -23,36 +23,56 @@
       <div
         class="container bg-pink-600 w-3/4 my-5 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg"
       >
-      <h2 class="text-center text-4xl text-white drop-shadow-lg mt-2">Results</h2>
-      <div class="w-full flex-row flex justify-around items-center"><div
-        class="backdrop-blur-sm bg-white/50 h-80 my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-center items-center rounded-lg drop-shadow-xl"
-      >
-      <p class="text-center text-xl text-white">Maps</p>
-        <button class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">More Info</button>
-      </div>
-      <div
-        class="h-80 w-1/6 backdrop-blur-sm bg-white/70 my-5 mx-2.5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl"
-      >
-        <em
-          class="fa-solid fa-thumbs-up fa-2xl"
-          style="cursor: pointer; color: rgb(0, 148, 0)"
-        ></em>
-        <em
-          class="fa-solid fa-thumbs-down fa-2xl fa-flip-horizontal"
-          style="cursor: pointer; color: rgb(163, 13, 3)"
-        ></em>
-      </div>
-      <div
-        class="h-80 backdrop-blur-sm bg-white/50 my-5 ml-2.5 mr-5 w-2/5 flex flex-col justify-center items-center rounded-lg drop-shadow-xl"
-      >
-        <p class="text-center text-xl text-white">Movie</p>
-        <button class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">More Info</button>
-      </div></div>
+        <h2 class="text-center text-4xl text-white drop-shadow-lg mt-2">
+          Results
+        </h2>
+        <div class="w-full flex-row flex justify-around items-center">
+          <div
+            class="backdrop-blur-sm bg-white/50 h-80 my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-center items-center rounded-lg drop-shadow-xl"
+          >
+            <div id="maps"></div>
+            <button
+              class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black"
+              style="
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              "
+            >
+              More Info
+            </button>
+          </div>
+          <div
+            class="h-80 w-1/6 backdrop-blur-sm bg-white/70 my-5 mx-2.5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl"
+          >
+            <em
+              class="fa-solid fa-thumbs-up fa-2xl"
+              style="cursor: pointer; color: rgb(0, 148, 0)"
+            ></em>
+            <em
+              class="fa-solid fa-thumbs-down fa-2xl fa-flip-horizontal"
+              style="cursor: pointer; color: rgb(163, 13, 3)"
+            ></em>
+          </div>
+          <div
+            class="h-80 backdrop-blur-sm bg-white/50 my-5 ml-2.5 mr-5 w-2/5 flex flex-col justify-center items-center rounded-lg drop-shadow-xl"
+          >
+            <p class="text-center text-xl text-white">Movie</p>
+            <button
+              class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black"
+              style="
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              "
+            >
+              More Info
+            </button>
+          </div>
+        </div>
       </div>
       <div
         class="container bg-pink-600 w-3/4 my-5 py-3 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg"
       >
-        <h2 class="text-center text-4xl text-white mb-3">About the Recommendation</h2>
+        <h2 class="text-center text-4xl text-white mb-3">
+          About the Recommendation
+        </h2>
         <p class="text-center text-xl text-slate-300 font-light">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           Necessitatibus ad corrupti error sunt accusantium aliquid cupiditate
@@ -62,12 +82,28 @@
       </div>
     </main>
 
-    <footer class="w-full bg-gradient-to-t from-sky-800 to-sky-200 pt-10 pb-2 flex flex-row justify-center"><p class="text-center text-lg text-white font-light mx-2.5"><a href="#">Privacy policy</a></p><p class="text-center text-lg text-white font-light mx-2.5"><a href="#">About Us</a></p></footer>
+    <footer
+      class="w-full bg-gradient-to-t from-sky-800 to-sky-200 pt-10 pb-2 flex flex-row justify-center"
+    >
+      <p class="text-center text-lg text-white font-light mx-2.5">
+        <a href="#">Privacy policy</a>
+      </p>
+      <p class="text-center text-lg text-white font-light mx-2.5">
+        <a href="#">About Us</a>
+      </p>
+    </footer>
 
     <script
       src="https://kit.fontawesome.com/dbdf997f84.js"
       crossorigin="anonymous"
     ></script>
+
     <script src="./assets/js/result.js"></script>
+
+    <script
+    async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5qSQWU8yNxfpBSDhhdRVo6OMHqbcZNi4&libraries=places,geometry,drawing&callback=initMap"
+    ></script>
+
   </body>
 </html>

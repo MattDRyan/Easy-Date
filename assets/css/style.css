@@ -12,3 +12,7 @@ footer{
 .hide{
     display: none;
 }
+#maps{
+    height: 80%;
+    width: 100%;
+}

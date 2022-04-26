@@ -29,40 +29,44 @@
         <div class="w-full flex-row flex justify-around items-center h-full my-2">
 
           <div
-            class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-center items-center rounded-lg drop-shadow-xl"
+            class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl"
           >
           <h2 id="restaurant-name" class="text-center text-3xl text-white drop-shadow-lg mt-2"></h2>
           <div id="restaurant-image" class="m-2"></div>
             <div id="maps"></div>
-            <p id="restaurant-address" class="text-center text-xl text-white drop-shadow-lg mt-2"></p>
+            <p id="restaurant-address" class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"></p>
             <div id="restaurant-btn"></div>
             
           </div>
 
-          <div
+          <div id="thumbs-div"
             class="h-80 w-1/6 backdrop-blur-sm bg-white/70 my-5 mx-2.5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl"
           >
-            <em
+            <em id="thumbs-up"
               class="fa-solid fa-thumbs-up fa-2xl"
               style="cursor: pointer; color: rgb(0, 148, 0)"
             ></em>
-            <em
+            <em id="thumbs-down"
               class="fa-solid fa-thumbs-down fa-2xl fa-flip-horizontal"
               style="cursor: pointer; color: rgb(163, 13, 3)"
             ></em>
           </div>
           <div
-            class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-center items-center rounded-lg drop-shadow-xl"
+            class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl"
           >
-            <p class="text-center text-xl text-white">Movie</p>
-            <button
+          <h2 id="movie-name" class="text-center text-3xl text-white drop-shadow-lg mt-2"></h2>
+          <div class="m-2"><img id="movie-image" alt="movie poster" ></div>
+          
+          <p id="movie-description" class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"></p>
+          <div id="movie-btn"></div>
+            <!-- <button
               class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black mb-1"
               style="
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
               "
             >
               More Info
-            </button>
+            </button> -->
           </div>
         </div>
       </div>

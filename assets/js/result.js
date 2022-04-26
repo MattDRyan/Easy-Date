@@ -2,6 +2,7 @@
 const variables = window.location.href.split("?")[1].split("&"); //read current location and get variables generated as results from the index.html page
 const mood = variables[0].split("=")[1]; // assign mood from the variables
 const cuisine = variables[1].split("=")[1]; // assign cuisine from the variables
+const userRatingDiv = document.querySelector("#thumbs-div")
 
 // Variable declarations
 // Getting HTML elements to dynamically change
@@ -10,6 +11,11 @@ var restaurantImage = document.querySelector("#restaurant-image");
 var restaurantAddress = document.querySelector("#restaurant-address");
 var restaurantBtn = document.querySelector("#restaurant-btn");
 
+var movieTitle = document.querySelector("#movie-name");
+var movieImage = document.querySelector("#movie-image");
+var movieDescription = document.querySelector("#movie-description");
+var movieBtn = document.querySelector("#movie-btn");
+
 // Declaring maps API variables
 var map; //map variable to hold the map
 var service; //service variable to hold the to hold the PlacesService
@@ -17,6 +23,7 @@ var result; //result variable to hold the callback results
 
 // initialising function gets called from the API script in HTML: 'callback = "initMap"'
 function initMap() {
+  getMovieList(mood)
   // creating a new location (Adelaide) to display while results are fetched
   var adelaide = new google.maps.LatLng(-34.928654, 138.59989);
 
@@ -127,45 +134,23 @@ const MOODS = {
     loveIn: "10749,35,14,10402",
 };
 
-//Result of questionsn will be added to this variable
-var mood = [];
-
-// var raw = "";
-
-// var requestOptions = {
-//   method: 'GET',
-//   body: raw,
-//   redirect: 'follow'
-// };
-
 
 var displayMovieData = function (data){
     console.log(data);
-    var movieContainerEl = document.querySelector('.movie-container');
 
-    for(var i = 0; i <3; i++){
-        var movieEl = document.createElement('div');
-        
-        var titleEl = document.createElement('p');
-        var descEl = document.createElement('p');
-        var posterEl = document.createElement('img');
+    var currentMovie = data.results[0];
 
-        titleEl.innerText = data.results[i].title;
-        descEl.innerText = data.results[i].overview;
-
-        var imgSrc = 'https://image.tmdb.org/t/p/w500' + data.results[i].backdrop_path;
-        posterEl.setAttribute('src', imgSrc)
-
-        movieEl.appendChild(posterEl);
-        movieEl.appendChild(titleEl);
-        movieEl.appendChild(descEl);
-
-        movieContainerEl.appendChild(movieEl);
-
-    }
+    movieTitle.textContent = currentMovie.title
+    var imgSrc = 'https://image.tmdb.org/t/p/w500' + currentMovie.backdrop_path;
+        movieImage.setAttribute('src', imgSrc)
+    movieDescription.textContent = currentMovie.overview
+    var searchUrl = 'https://google.com/search?q=' + currentMovie.title
+    movieBtn.innerHTML = '<button class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black mb-1" style="font-family: \'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif;"><a href = "' +
+    searchUrl +
+    '" target = "_blank">More Info</a></button>'
 };
 
-var getmovieList = function(mood = 'imAmped'){
+var getMovieList = function(moodSelected) {
     var baseMovieUrl = 'https://api.themoviedb.org/3/discover/movie?';
     //Movie Url attributes
     var movieApiKey = '157214d692672d4330ed9b68488df280'
@@ -176,14 +161,24 @@ var getmovieList = function(mood = 'imAmped'){
     //with_original_language=Specify an ISO 639-1 string to filter results by their original language value. en is english.
     var movieWithOrigLang = 'en';
     // Get mood id from MOODS Obj
-    var moodID = MOODS.mood;
+    var moodID = MOODS[moodSelected];
 
+    // fetch request for movie API
     fetch(baseMovieUrl + 'api_key=' + movieApiKey + '&language=' + movieLanguage + '&include_adult=' + movieIncludeAdult + '&with_original_language=' + movieWithOrigLang + '&with_genres=' + moodID)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         displayMovieData(data);
 
     })
     .catch(error => console.log('error', error));
 }
+
+userRatingDiv.addEventListener('click',function(e) {
+  e.preventDefault();
+  var pressed = e.target.id;
+  if (pressed === 'thumbs-up'){
+    console.log('thumbs up')
+  }else if(pressed === 'thumbs-down'){
+    console.log('thumbs down')
+  }
+})

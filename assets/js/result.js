@@ -20,7 +20,6 @@ function initMap() {
     query: cuisine,
     openNow: true,
     type: ["restaurant"],
-    fields: ['photos', 'name', 'formatted_address', 'rating']
   };
 
   service = new google.maps.places.PlacesService(map);

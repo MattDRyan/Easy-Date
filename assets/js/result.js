@@ -105,3 +105,85 @@ function writeRestaurantData(place) {
     searchUrl +
     '" target = "_blank">More Info</a></button>';
 }
+
+//with_genres=Comma separated value of genre ids that you want to include in the results. String
+//{"id":28,"name":"Action"},{"id":10752,"name":"War"},{"id":12,"name":"Adventure"},{"id":37,"name":"Western"}
+
+//{"id":16,"name":"Animation"},,{"id":10751,"name":"Family"},{"id":10770,"name":"TV Movie"},{"id":18,"name":"Drama"}
+
+//{"id":80,"name":"Crime"},{"id":36,"name":"History"},{"id":99,"name":"Documentary"},{"id":878,"name":"Science Fiction"}
+
+//,{"id":27,"name":"Horror"},{"id":53,"name":"Thriller"},{"id":9648,"name":"Mystery"}
+
+//{"id":10749,"name":"Romance"},{"id":35,"name":"Comedy"},{"id":14,"name":"Fantasy"},{"id":10402,"name":"Music"}
+
+//Mood is set by the result of the five questions
+
+const MOODS = {
+    imAmped: "28,10752,12,37",
+    familyVibe: "16,10751,10770,18",
+    thinker: "80,36,99,878",
+    frightNight: "27,53,9648",
+    loveIn: "10749,35,14,10402",
+};
+
+//Result of questionsn will be added to this variable
+var mood = [];
+
+// var raw = "";
+
+// var requestOptions = {
+//   method: 'GET',
+//   body: raw,
+//   redirect: 'follow'
+// };
+
+
+var displayMovieData = function (data){
+    console.log(data);
+    var movieContainerEl = document.querySelector('.movie-container');
+
+    for(var i = 0; i <3; i++){
+        var movieEl = document.createElement('div');
+        
+        var titleEl = document.createElement('p');
+        var descEl = document.createElement('p');
+        var posterEl = document.createElement('img');
+
+        titleEl.innerText = data.results[i].title;
+        descEl.innerText = data.results[i].overview;
+
+        var imgSrc = 'https://image.tmdb.org/t/p/w500' + data.results[i].backdrop_path;
+        posterEl.setAttribute('src', imgSrc)
+
+        movieEl.appendChild(posterEl);
+        movieEl.appendChild(titleEl);
+        movieEl.appendChild(descEl);
+
+        movieContainerEl.appendChild(movieEl);
+
+    }
+};
+
+var getmovieList = function(mood = 'imAmped'){
+    var baseMovieUrl = 'https://api.themoviedb.org/3/discover/movie?';
+    //Movie Url attributes
+    var movieApiKey = '157214d692672d4330ed9b68488df280'
+    //language=Specify a language to query translatable fields with.
+    var movieLanguage = 'en-US';
+    //include_adult=A filter to include or exclude adult movies. Boolean
+    var movieIncludeAdult = 'False';
+    //with_original_language=Specify an ISO 639-1 string to filter results by their original language value. en is english.
+    var movieWithOrigLang = 'en';
+    // Get mood id from MOODS Obj
+    var moodID = MOODS.mood;
+
+    fetch(baseMovieUrl + 'api_key=' + movieApiKey + '&language=' + movieLanguage + '&include_adult=' + movieIncludeAdult + '&with_original_language=' + movieWithOrigLang + '&with_genres=' + moodID)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        displayMovieData(data);
+
+    })
+    .catch(error => console.log('error', error));
+}

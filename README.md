@@ -1,5 +1,5 @@
-# Project-1
-A-team project-1
+# Easy Date Readme
+A Virtucon product
 
 
 **About Week-3-Homework**
@@ -10,6 +10,9 @@ A-team project-1
 
 
 **Completed site**
+
+https://mattdryan.github.io/Easy-Date/
+
 
 
 

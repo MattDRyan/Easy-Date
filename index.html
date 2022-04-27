@@ -1,53 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header class="header" >
-        <h1 id="title">Title</h1>
+    <header class="header">
+        <h1 id="title">Easy Date</h1>
         <nav id="links">
-            <button">first</button>
+            <button>first</button></a>
             <button>second</button>
             <button>third</button>
         </nav>
     </header>
 
     <section>
-        <div>
+        <div class="semNome">
             <div class="questions">
-                <h4>Questions</h4>
+                <h1 id="questTitle">Questions</h1>
                 <div id="textQuestions">
-                <h1>first question</h1>
-                <h1>second question</h1>
-                <h1>third question</h1>
-                <h1>fourth question</h1>
+                    <div class="horoscope">
+                        <h1>What is your horoscope?</h1>
+                        <div id="btnHoroscope">
+                            <button>Pisces</button> <button>Taurus</button> <button>Leo</button> <button>Cancer</button>
+                            <button>Aries</button> <button>Libra</button>
+                            <button>Virgo</button>
+                            <button>Gemini</button>
+                            <button>Escorpio</button>
+                            <button>Sagittarius</button>
+                            <button>Capricorn</button>
+                            <button>Aquarius</button>
+                        </div>
+                    </div>
+                    <div class="mood">
+                        <h1>What's your mood level for today?</h1>
+                        <div id="yourMood">
+                            <button>1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>4</button>
+                            <button>5</button>
+                        </div>
+                    </div>
+                    <div class="pet">
+                        <h1>Your favorite pet?</h1>
+                        <div id="selectPet">
+                            <button>Dog</button>
+                            <button>Cat</button>
+                        </div>
+                    </div>
+                    <div class="color">
+                        <h1> What is your favourite color?</h1>
+                        <div id="yourColor">
+                            <button>Red</button>
+                            <button>yellow</button>
+                            <button>green</button>
+                            <button>blue</button>
+                            <button>indigo</button>
+                            <button>violet</button>
+                        </div>
+                    </div>
+                    <div class="season">
+                        <h1> What is your favourite season?</h1>
+                        <div id="yourSeason">
+                            <button>Spring</button>
+                            <button>Summer</button>
+                            <button>Autunm</button>
+                            <button>Winter</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="answer">
-                <h4>Answer (form)</h4>
+                <textarea name="myAnswer" id="myAnswer"></textarea>
             </div>
-            <button id="button">OK</button>
-        </div>
-
-        <div class="moviesGenre">
-            <div id="genre1" name="war"></div>
-            <div id="genre2" name="action"></div>
-            <div id="genre3" name="adventure"></div>
-            <div id="genre4" name="Western"></div>
-            <div id="genre5" name="cartoon"></div>
+            <div class="lastBtn">
+                <button id="button">OK</button>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>FOOTER</p>
+        <h1>FOOTER</h1>
     </footer>
     <script src="./assets/js/script.js"></script>
 </body>
 
-</html>       
+</html>

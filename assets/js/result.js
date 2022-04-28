@@ -241,6 +241,6 @@ userRatingDiv.addEventListener('click',function(e) {
     writeStorage()}
   if(pressed === 'thumbs-down'){
     writeStorage()
-    initMap()
+    window.location.reload(true)
   }
 })

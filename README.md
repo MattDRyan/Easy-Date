@@ -14,8 +14,8 @@ A Virtucon product
 https://mattdryan.github.io/Easy-Date/
 
 - Screenshots:
-![Alt text](/assets/images
-
+![Alt text](assets/images/homepage.png "Home Page")
+![Alt text](
 
 
 

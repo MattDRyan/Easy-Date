@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- google font Lobster -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <title>Easy Date</title>
+  </head>
+  <!-- body element -->
+  <body
+    class="sm:h-screen h-full bg-sky-200 sm:w-screen flex flex-col items-center justify-between"
+  >
+  <!-- header element -->
+    <header
+      class="w-full bg-gradient-to-b from-sky-800 to-sky-200 pb-5 pt-2 basis-1/12"
+    >
+      <h1 class="text-center text-8xl text-white drop-shadow-lg">Easy Date</h1>
+    </header>
+    <!-- main element -->
+    <main
+      class="flex flex-col justify-center items-center sm:w-3/4 w-auto mx-5 h-full my-2 basis-10/12"
+    >
+    <!-- pink card containing results-->
+      <div
+        class="container bg-pink-600 w-full rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg basis-full sm:basis-full"
+      >
+      <!-- results header -->
+        <h2
+          class="text-center text-4xl text-white drop-shadow-lg mt-2 basis-1/12"
+        >
+          Results
+        </h2>
+        <!-- flex container for all results and thumbs container -->
+        <div
+          id="card-holder"
+          class="w-full sm:flex-row flex justify-around items-center my-2 basis-11/12 flex-col"
+        >
+        <!-- restaurant result card -->
+          <div
+            class="backdrop-blur-sm bg-white/50 sm:h-full sm:ml-5 sm:mr-2.5 sm:w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl w-full mx-2 basis-5/12"
+          >
+            <h2
+              id="restaurant-name"
+              class="text-center text-3xl text-white drop-shadow-lg mt-2"
+            ></h2>
+            <div id="restaurant-image" class="m-2"></div>
+            <div id="maps"></div>
+            <p
+              id="restaurant-address"
+              class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"
+            ></p>
+            <div id="restaurant-btn"></div>
+          </div>
+          <!-- thumbs up and down container -->
+          <div
+            id="thumbs-div"
+            class="sm:h-80 sm:w-1/6 backdrop-blur-sm bg-white/70 sm:mx-2.5 flex sm:flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl flex-row w-full h-32 my-1"
+          >
+            <em
+              id="thumbs-up"
+              class="fa-solid fa-thumbs-up fa-2xl"
+              style="cursor: pointer; color: rgb(0, 148, 0)"
+            ></em>
+            <em
+              id="thumbs-down"
+              class="fa-solid fa-thumbs-down fa-2xl fa-flip-horizontal"
+              style="cursor: pointer; color: rgb(163, 13, 3)"
+            ></em>
+          </div>
+          <!-- movie result card -->
+          <div
+            class="backdrop-blur-sm bg-white/50 sm:h-full sm:mr-5 sm:ml-2.5 sm:w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl w-full mx-2 basis-5/12"
+          >
+            <h2
+              id="movie-name"
+              class="text-center text-3xl text-white drop-shadow-lg mt-2"
+            ></h2>
+            <div class="m-2"><img id="movie-image" alt="movie poster" /></div>
+
+            <p
+              id="movie-description"
+              class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"
+            ></p>
+            <div id="movie-btn"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- footer element -->
+    <footer
+      class="w-full bg-gradient-to-t from-sky-800 to-sky-200 pt-3 pb-2 flex flex-row justify-center basis-1/12"
+    >
+      <p class="text-center text-lg text-white font-light mx-2.5">
+        <a href="#">Privacy policy</a>
+      </p>
+      <p class="text-center text-lg text-white font-light mx-2.5">
+        <a href="#">About Us</a>
+      </p>
+    </footer>
+
+    <!-- font awesome script -->
+    <script
+      src="https://kit.fontawesome.com/dbdf997f84.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- custom results script -->
+    <script src="./assets/js/result.js"></script>
+    <!-- google maps Javascript API  -->
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5qSQWU8yNxfpBSDhhdRVo6OMHqbcZNi4&libraries=places,geometry,drawing&callback=initMap"
+    ></script>
+  </body>
+</html>

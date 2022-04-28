@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body>
-    <header class="header">
-        <h1 id="title">Title</h1>
-        <nav id="links">
-            <ul>
-                <li><a href="">first</a></li>
-                <li><a href="">second</a></li>
-                <li><a href="">third</a></li>
-            </ul>
-        </nav>
+    <!-- loading tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google font Lobster added -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Easy Date</title>
+  </head>
+  <!-- body element -->
+  <body class="h-screen bg-sky-200 w-screen flex flex-col justify-between">
+    <!-- header element -->
+    <header class="w-full bg-gradient-to-b from-sky-800 to-sky-200 pb-5 pt-2">
+      <h1 class="text-center text-8xl text-white drop-shadow-lg">Easy Date</h1>
     </header>
+    <!-- main element -->
+    <main class="flex flex-col justify-center items-center w-full">
+      <!-- pink card container -->
+      <div
+        class="container bg-pink-600 w-3/4 my-5 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg"
+      >
+        <h2
+          id="heading"
+          class="text-center text-5xl text-white drop-shadow-lg mt-2 px-2"
+        ></h2>
+        <div
+          id="content-container"
+          class="w-4/5 flex flex-row flex-wrap items-center justify-center"
+        ></div>
+      </div>
+    </main>
 
-    <section>
-        <div>
-            <div class="questions">
-                <h4>Questions?</h4>
-                <div id="textQuestions">
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                </div>
-            </div>
-            <div class="answer">
-                <h4>Answer (form)</h4>
-            </div>
-            <button id="button">OK</button>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>FOOTER</p>
+    <!-- footer element -->
+    <footer
+      class="w-full bg-gradient-to-t from-sky-800 to-sky-200 pt-10 pb-2 flex flex-row justify-center"
+    >
+      <p class="text-center text-lg text-white font-light mx-2.5">
+        <a href="#">Privacy policy</a>
+      </p>
+      <p class="text-center text-lg text-white font-light mx-2.5">
+        <a href="#">About Us</a>
+      </p>
     </footer>
-</body>
 
-</html>                   
+    <!-- font awesome script -->
+    <script
+      src="https://kit.fontawesome.com/dbdf997f84.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- custom JS script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

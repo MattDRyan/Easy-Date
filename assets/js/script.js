@@ -221,7 +221,7 @@ function submitResults() {
   }
 
   // push the results to the results page via the replace method
-  window.location.replace('/results.html?mood='+ mood+'&cuisine='+cuisineSelection)
+  window.location.replace('results.html?mood='+ mood+'&cuisine='+cuisineSelection)
 
 }
 

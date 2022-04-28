@@ -14,26 +14,26 @@
     />
     <title>Easy Date</title>
   </head>
-  <body class="h-screen bg-sky-200 w-screen flex flex-col items-center justify-between">
+  <body class="sm:h-screen h-full bg-sky-200 sm:w-screen flex flex-col items-center justify-between">
     <header
-      class="w-full bg-gradient-to-b from-sky-800 to-sky-200 pb-5 pt-2 h-1/6"
+      class="w-full bg-gradient-to-b from-sky-800 to-sky-200 pb-5 pt-2 basis-1/12"
     >
       <h1 class="text-center text-8xl text-white drop-shadow-lg">Easy Date</h1>
     </header>
 
-    <main class="flex flex-col justify-center items-center w-3/4 h-full">
+    <main class="flex flex-col justify-center items-center sm:w-3/4 w-auto mx-5 h-full my-2 basis-10/12">
       <div
-        class="container bg-pink-600 w-full my-5 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg h-full"
+        class="container bg-pink-600 w-full rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg basis-full sm:basis-full"
       >
-        <h2 class="text-center text-4xl text-white drop-shadow-lg mt-2">
+        <h2 class="text-center text-4xl text-white drop-shadow-lg mt-2 basis-1/12">
           Results
         </h2>
         <div
           id="card-holder"
-          class="w-full flex-row flex justify-around items-center my-2 h-full"
+          class="w-full sm:flex-row flex justify-around items-center my-2 basis-11/12 flex-col"
         >
           <div
-            class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl"
+          class="backdrop-blur-sm bg-white/50 sm:h-full sm:ml-5 sm:mr-2.5 sm:w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl w-full mx-2 basis-5/12"
           >
             <h2
               id="restaurant-name"
@@ -50,7 +50,7 @@
 
           <div
             id="thumbs-div"
-            class="h-80 w-1/6 backdrop-blur-sm bg-white/70 my-5 mx-2.5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl"
+            class="sm:h-80 sm:w-1/6 backdrop-blur-sm bg-white/70 sm:mx-2.5 flex sm:flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl flex-row w-full h-32 my-1"
           >
             <em
               id="thumbs-up"
@@ -64,7 +64,7 @@
             ></em>
           </div>
           <div
-            class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl"
+            class="backdrop-blur-sm bg-white/50 sm:h-full sm:mr-5 sm:ml-2.5 sm:w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl w-full mx-2 basis-5/12"
           >
             <h2
               id="movie-name"
@@ -80,23 +80,10 @@
           </div>
         </div>
       </div>
-      <!-- <div
-        class="container bg-pink-600 w-3/4 my-5 py-3 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg"
-      >
-        <h2 class="text-center text-4xl text-white mb-3">
-          About the Recommendation
-        </h2>
-        <p class="text-center text-xl text-slate-300 font-light">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Necessitatibus ad corrupti error sunt accusantium aliquid cupiditate
-          tenetur placeat facere nihil quo vel ab consectetur inventore, porro,
-          laudantium facilis neque velit.
-        </p>
-      </div> -->
     </main>
 
     <footer
-      class="w-full bg-gradient-to-t from-sky-800 to-sky-200 pt-3 pb-2 flex flex-row justify-center"
+      class="w-full bg-gradient-to-t from-sky-800 to-sky-200 pt-3 pb-2 flex flex-row justify-center basis-1/12"
     >
       <p class="text-center text-lg text-white font-light mx-2.5">
         <a href="#">Privacy policy</a>

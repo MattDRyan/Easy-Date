@@ -22,6 +22,7 @@ var movieBtn = document.querySelector("#movie-btn");
 var map; //map variable to hold the map
 var service; //service variable to hold the to hold the PlacesService
 var result; //result variable to hold the callback results
+var movieData;
 
 // initialising function gets called from the API script in HTML: 'callback = "initMap"'
 function initMap() {
@@ -109,7 +110,10 @@ function writeRestaurantData(results) {
   restaurantTitle.textContent = place.name;
 
   // get an image url from the restaurant object
-  var imageUrl = place.photos[0].getUrl();
+  var imageUrl = './assets/images/restaurant.png'
+  if(place.photos){
+    imageUrl = place.photos[0].getUrl();
+  }
 
   // write the image to the HTML document
   restaurantImage.innerHTML =
@@ -184,7 +188,10 @@ var displayMovieData = function (data){
 
 
     movieTitle.textContent = currentMovie.title
-    var imgSrc = 'https://image.tmdb.org/t/p/w500' + currentMovie.backdrop_path;
+    var imgSrc = './assets/images/clapperboard.png';
+    if(currentMovie.backdrop_path){
+      imgSrc = 'https://image.tmdb.org/t/p/w500' + currentMovie.backdrop_path;
+    }
         movieImage.setAttribute('src', imgSrc)
         if(currentMovie.overview.length > 120){
           var shorterDescription = currentMovie.overview.substring(0,120) + '...'
@@ -212,10 +219,11 @@ var getMovieList = function(moodSelected) {
     var moodID = MOODS[moodSelected];
 
     // fetch request for movie API
-    fetch(baseMovieUrl + 'api_key=' + movieApiKey + '&language=' + movieLanguage + '&include_adult=' + movieIncludeAdult + '&with_original_language=' + movieWithOrigLang + '&with_genres=' + moodID)
+    fetch(baseMovieUrl + 'api_key=' + movieApiKey + '&language=' + movieLanguage + '&include_adult=' + movieIncludeAdult + '&with_original_language=' + movieWithOrigLang + '&with_genres=' + moodID )
     .then(response => response.json())
     .then(data => {
-        displayMovieData(data);
+      movieData = data
+        displayMovieData(movieData);
 
     })
     .catch(error => console.log('error', error));

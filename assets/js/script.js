@@ -1,8 +1,7 @@
 // variable declarations 
-const heading = document.querySelector("#heading");
-const contentContainer = document.querySelector("#content-container");
-const historyContainer = document.querySelector("#history-container");
-
+const heading = document.querySelector("#heading"); // getting heading element from HTML document
+const contentContainer = document.querySelector("#content-container"); // getting content element from HTML document
+// declaring all questions as array
 const questions = [
   "How about we start with your horoscope?",
   "How awesome are you feeling?",
@@ -10,7 +9,7 @@ const questions = [
   "Choice of colour also helps our algorithm. Which one would you like to choose?",
   "Ok lucky last. Your favourite season?",
 ];
-
+// declaring all options for each question
 const content = {
   0: [
     "Aries",
@@ -49,6 +48,8 @@ const content = {
 // index 2 = thinker
 // index 3 = frightNight
 // index 4 = loveIn
+// declaring results object to determine what is the mood of the user
+// for example they choose virgo = [5, 5, 7, 5, 5] therefore imAmped = 5, familyVibe = 5, thinker = 7,...etc.
 const results = {
   horoscope: {
     aries: [9, 5, 3, 8, 5],
@@ -89,6 +90,7 @@ const results = {
   },
 };
 
+// declaring cuisines for the selected mood
 const cuisine = {
   0: ["indian restaurant", "spicy food"],
   1: ["parmi", "comfort food"],
@@ -97,33 +99,23 @@ const cuisine = {
   4: ["italian restaurant", "french restaurant"],
 };
 
+// declaring empty finalResult array
 var finalResult = [...Array(5)];
 
+// declaring empty selection array to hold user selection
 var selected = [];
 
+// initialising function
 function init() {
   heading.innerHTML = "Can't find a date idea? Easy Date can help";
   contentContainer.innerHTML =
     '<button id="start-btn" class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black text-3xl my-3">Let\'s Go</button>';
-
-  setHistory();
 }
 
-function setHistory() {
-  var history = JSON.parse(localStorage.getItem('recommendations'))
-  console.log(history);
-  if(history !== null){
-    historyContainer.classList.remove('hide')
-    historyContainer.data.hide = "false"
-  }else{
-    historyContainer.classList.add('hide')
-    historyContainer.data.hide = "true"
-  }
-}
-
+// function to start quiz on go button press
 function startQuiz() {
-  heading.innerHTML = questions[0];
-  contentContainer.innerHTML = content[0]
+  heading.innerHTML = questions[0]; // prints first question to the element
+  contentContainer.innerHTML = content[0] // prints first answer options to element
     .map((horoscope) => {
       return (
         '<button id="horoscope-btn" class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black text-3xl mx-3 my-3 shadow-md ">' +
@@ -134,13 +126,14 @@ function startQuiz() {
     .join(" ");
 }
 
+// function to print the next question and its options
 function nextQuestion(q) {
-  var elementId;
+  var elementId; // variable to hold question id
   heading.innerHTML = questions[q];
-  if (q === 1) {
+  if (q === 1) { //if question is 1 then print a different option (awesome slider)
     contentContainer.innerHTML =
       '<div class="w-full my-3"><input id="slider" type="range" list="tickmarks" value="5" min="0" max="10" class="w-full"><datalist id="tickmarks"><option value="0"></option><option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option><option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option> <option value="9"></option><option value="10"></option></datalist></div><button id="next-btn" class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black text-3xl my-3">Next</button>';
-  } else if (q === 3) {
+  } else if (q === 3) { // if question is what colour then print buttons of colours and colour each button of its value
     contentContainer.innerHTML = content[q]
       .map((val) => {
         if (val === "White") {
@@ -188,6 +181,7 @@ function nextQuestion(q) {
   }
 }
 
+// function to submit quiz results
 function submitResults() {
   console.log(selected);
   for (const element of selected) {
@@ -199,15 +193,16 @@ function submitResults() {
       }
     }
   }
-  var maxValue = Math.max(...finalResult);
+  var maxValue = Math.max(...finalResult); // finds the max value 
   var indexes = []
-  finalResult.forEach((value,index) => {
+  finalResult.forEach((value,index) => { // function to find which mood got the max value and return its index as an array
     
       if (value === maxValue) {
           indexes.push(index)
       }
   })
 
+  // determine the mood and cuisine from looking at results arrays
   var moodIndex = indexes[Math.floor(Math.random() * indexes.length)]
   var mood;
   var cuisineSelection =
@@ -225,10 +220,12 @@ function submitResults() {
     mood = "loveIn";
   }
 
+  // push the results to the results page via the replace method
   window.location.replace('http://127.0.0.1:5500/Homework/Project-01/Project-1/results.html?mood='+ mood+'&cuisine='+cuisineSelection)
 
 }
 
+// event listener to start quiz and all option buttons
 contentContainer.addEventListener("click", function (e) {
   e.preventDefault();
   if (e.target.id === "start-btn") {
@@ -260,4 +257,5 @@ contentContainer.addEventListener("click", function (e) {
   }
 });
 
+// initialise
 init();

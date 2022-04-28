@@ -15,12 +15,13 @@ https://mattdryan.github.io/Easy-Date/
 
 - Screenshots:
 ![Alt text](assets/images/homepage.png "Home Page")
-![Alt text](
+![Alt text](assets/images/results-page.png "Result Page")
 
 
 
 **Project Goal**
 
+We engineer social problems.
 
 
 **Get started with the project**

@@ -14,38 +14,51 @@
     />
     <title>Easy Date</title>
   </head>
-  <body class="h-screen bg-sky-200 w-screen flex flex-col justify-between w-screen">
-    <header class="w-full bg-gradient-to-b from-sky-800 to-sky-200 pb-5 pt-2">
+  <body class="h-screen bg-sky-200 w-screen flex flex-col items-center justify-between">
+    <header
+      class="w-full bg-gradient-to-b from-sky-800 to-sky-200 pb-5 pt-2 h-1/6"
+    >
       <h1 class="text-center text-8xl text-white drop-shadow-lg">Easy Date</h1>
     </header>
 
-    <main class="flex flex-col justify-center items-center w-full h-full">
+    <main class="flex flex-col justify-center items-center w-3/4 h-full">
       <div
-        class="container bg-pink-600 w-3/4 my-5 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg h-full"
+        class="container bg-pink-600 w-full my-5 rounded-xl flex-col flex justify-around items-center text-white border-4 border-pink-700 drop-shadow-lg h-full"
       >
         <h2 class="text-center text-4xl text-white drop-shadow-lg mt-2">
           Results
         </h2>
-        <div class="w-full flex-row flex justify-around items-center h-full my-2">
-
+        <div
+          id="card-holder"
+          class="w-full flex-row flex justify-around items-center my-2 h-full"
+        >
           <div
             class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl"
           >
-          <h2 id="restaurant-name" class="text-center text-3xl text-white drop-shadow-lg mt-2"></h2>
-          <div id="restaurant-image" class="m-2"></div>
+            <h2
+              id="restaurant-name"
+              class="text-center text-3xl text-white drop-shadow-lg mt-2"
+            ></h2>
+            <div id="restaurant-image" class="m-2"></div>
             <div id="maps"></div>
-            <p id="restaurant-address" class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"></p>
+            <p
+              id="restaurant-address"
+              class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"
+            ></p>
             <div id="restaurant-btn"></div>
           </div>
 
-          <div id="thumbs-div"
+          <div
+            id="thumbs-div"
             class="h-80 w-1/6 backdrop-blur-sm bg-white/70 my-5 mx-2.5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl md:text-4xl lg:text-5xl xl:text-6xl"
           >
-            <em id="thumbs-up"
+            <em
+              id="thumbs-up"
               class="fa-solid fa-thumbs-up fa-2xl"
               style="cursor: pointer; color: rgb(0, 148, 0)"
             ></em>
-            <em id="thumbs-down"
+            <em
+              id="thumbs-down"
               class="fa-solid fa-thumbs-down fa-2xl fa-flip-horizontal"
               style="cursor: pointer; color: rgb(163, 13, 3)"
             ></em>
@@ -53,19 +66,17 @@
           <div
             class="backdrop-blur-sm bg-white/50 h-full my-5 ml-5 mr-2.5 w-2/5 flex flex-col justify-around items-center rounded-lg drop-shadow-xl"
           >
-          <h2 id="movie-name" class="text-center text-3xl text-white drop-shadow-lg mt-2"></h2>
-          <div class="m-2"><img id="movie-image" alt="movie poster" ></div>
-          
-          <p id="movie-description" class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"></p>
-          <div id="movie-btn"></div>
-            <!-- <button
-              class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black mb-1"
-              style="
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              "
-            >
-              More Info
-            </button> -->
+            <h2
+              id="movie-name"
+              class="text-center text-3xl text-white drop-shadow-lg mt-2"
+            ></h2>
+            <div class="m-2"><img id="movie-image" alt="movie poster" /></div>
+
+            <p
+              id="movie-description"
+              class="text-center text-xl text-white drop-shadow-lg mt-2 mx-1"
+            ></p>
+            <div id="movie-btn"></div>
           </div>
         </div>
       </div>
@@ -103,9 +114,8 @@
     <script src="./assets/js/result.js"></script>
 
     <script
-    async
+      async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5qSQWU8yNxfpBSDhhdRVo6OMHqbcZNi4&libraries=places,geometry,drawing&callback=initMap"
     ></script>
-
   </body>
 </html>

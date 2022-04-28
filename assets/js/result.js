@@ -3,6 +3,8 @@ const variables = window.location.href.split("?")[1].split("&"); //read current 
 const mood = variables[0].split("=")[1]; // assign mood from the variables
 const cuisine = variables[1].split("=")[1]; // assign cuisine from the variables
 const userRatingDiv = document.querySelector("#thumbs-div")
+var savedResults = []
+var uniqueResults = {}
 
 // Variable declarations
 // Getting HTML elements to dynamically change
@@ -23,6 +25,12 @@ var result; //result variable to hold the callback results
 
 // initialising function gets called from the API script in HTML: 'callback = "initMap"'
 function initMap() {
+  var retrievedResults = JSON.parse(localStorage.getItem("results"));
+
+  if (retrievedResults !== null) {
+    savedResults = retrievedResults;
+  }
+
   getMovieList(mood)
   // creating a new location (Adelaide) to display while results are fetched
   var adelaide = new google.maps.LatLng(-34.928654, 138.59989);
@@ -53,15 +61,37 @@ function callback(results, status) {
     // if succeeded then result variable = results returned
     result = results;
     // call writeRestaurantData function to write result
-    writeRestaurantData(result[0]);
+    writeRestaurantData(result);
   } else {
     // if the API call failed then print error message
     console.log("Error" + google.maps.places.PlacesServiceStatus);
   }
 }
 
+function writeStorage(){
+      savedResults.push(uniqueResults)
+      localStorage.setItem("results", JSON.stringify(savedResults))
+}
+
 // functions to write the results
-function writeRestaurantData(place) {
+function writeRestaurantData(results) {
+  console.log(results);
+  var place
+  
+  for(const element of results) {
+    place = element
+    if(savedResults.some(function(e){
+      return e.restaurant == place.name
+    })){
+      console.log(place.name)
+    }else{
+      uniqueResults['restaurant'] = place.name
+      break;
+    }
+  }
+  
+  
+
   // set map location to the current restaurant location
   map = new google.maps.Map(document.getElementById("maps"), {
     center: place.geometry.location,
@@ -137,13 +167,31 @@ const MOODS = {
 
 var displayMovieData = function (data){
     console.log(data);
+    var moviesArray = data.results;
+    var currentMovie
 
-    var currentMovie = data.results[0];
+    for(const element of moviesArray) {
+      currentMovie = element
+      if(savedResults.some(function(e){
+        return e.movie == currentMovie.title
+      })){
+        console.log(currentMovie.title)
+      }else{
+        uniqueResults['movie'] = currentMovie.title
+        break;
+      }
+    }
+
 
     movieTitle.textContent = currentMovie.title
     var imgSrc = 'https://image.tmdb.org/t/p/w500' + currentMovie.backdrop_path;
         movieImage.setAttribute('src', imgSrc)
-    movieDescription.textContent = currentMovie.overview
+        if(currentMovie.overview.length > 120){
+          var shorterDescription = currentMovie.overview.substring(0,120) + '...'
+          movieDescription.textContent = shorterDescription
+        }else{
+          movieDescription.textContent = currentMovie.overview
+        }
     var searchUrl = 'https://google.com/search?q=' + currentMovie.title
     movieBtn.innerHTML = '<button class="rounded-full bg-sky-600 px-5 py-1 hover:bg-sky-200 hover:text-black mb-1" style="font-family: \'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif;"><a href = "' +
     searchUrl +
@@ -173,12 +221,14 @@ var getMovieList = function(moodSelected) {
     .catch(error => console.log('error', error));
 }
 
+
 userRatingDiv.addEventListener('click',function(e) {
   e.preventDefault();
   var pressed = e.target.id;
   if (pressed === 'thumbs-up'){
-    console.log('thumbs up')
-  }else if(pressed === 'thumbs-down'){
-    console.log('thumbs down')
+    writeStorage()}
+  if(pressed === 'thumbs-down'){
+    writeStorage()
+    initMap()
   }
 })

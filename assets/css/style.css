@@ -16,3 +16,6 @@ footer{
     height: 80%;
     width: 100%;
 }
+#restaurant-image{
+    max-height: 40%;
+}

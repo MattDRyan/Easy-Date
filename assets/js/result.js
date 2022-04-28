@@ -1,10 +1,14 @@
 // Constants declarations
 const variables = window.location.href.split("?")[1].split("&"); //read current location and get variables generated as results from the index.html page
-const mood = variables[0].split("=")[1]; // assign mood from the variables
+var mood = variables[0].split("=")[1]; // assign mood from the variables
 const cuisine = variables[1].split("=")[1]; // assign cuisine from the variables
 const userRatingDiv = document.querySelector("#thumbs-div")
 var savedResults = []
 var uniqueResults = {}
+
+if(mood === 'thinker'){
+  mood = 'frightNight'
+}
 
 // Variable declarations
 // Getting HTML elements to dynamically change
